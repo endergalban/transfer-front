@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TransferService } from '../transfer/services/transfer.service';
 
 @Component({
   selector: 'app-transfer',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransferComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private transferService: TransferService,
+  ) { }
 
   ngOnInit(): void {
+    const receivers = this.route.snapshot.data['reicivers'];
   }
 
 }

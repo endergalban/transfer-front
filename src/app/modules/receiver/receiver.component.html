@@ -1,1 +1,82 @@
-<p>receiver works!</p>
+<div class="row">
+  <div class="col-4">
+    <div class="card">
+      <div class="card-header">
+        Nuevo Destinatario
+      </div>
+      <div class="card-body">
+        <form [formGroup]="form">
+          <div class="form-row">
+            <div class="col-md-12 mb-3">
+              <label for="name">Nombre</label>
+              <input formControlName="name" type="text" class="form-control form-control-sm" id="name" placeholder="Pedro Perez">
+            </div>
+            <div class="col-md-12 mb-3">
+              <label for="identification">RUT</label>
+              <input formControlName="identification" type="text" class="form-control form-control-sm" id="identification" placeholder="99.999.999-9">
+            </div>
+            <div class="col-md-12 mb-3">
+              <label for="email">Correo</label>
+              <input formControlName="email" type="text" class="form-control form-control-sm" id="email" placeholder="pedroperez@example.com">
+            </div>
+            <div class="col-md-12 mb-3">
+              <label for="phone">Telefono</label>
+              <input formControlName="phone" type="text" class="form-control form-control-sm" id="phone" placeholder="+56964482824">
+            </div>
+            <div class="col-md-12 mb-3">
+              <label for="bank">Banco</label>
+                <select formControlName="bank" class="form-control form-control-sm" id="bank">
+                  <option *ngFor="let bank of banks; let j = index"  [value]="j">
+                    {{bank.name}}
+                  </option>
+              </select>
+            </div>
+            <div class="col-md-12 mb-3">
+              <label for="accountType">Tipo de Cuenta</label>
+              <select formControlName="accountType" class="form-control form-control-sm" id="accountType">
+                <option *ngFor="let accountType of accountTypes; let j = index"  [value]="j">
+                  {{accountType.name}}
+                </option>
+              </select>
+            </div>
+            <div class="col-md-12 mb-3">
+              <label for="accountNumber">Número de cuenta</label>
+              <input formControlName="accountNumber" type="text" class="form-control form-control-sm" id="accountNumber" placeholder="999999999">
+            </div>
+          </div>
+          <button
+            class="btn btn-primary"
+            type="submit"
+            (click)="onSubmit()"
+            [disabled]="loading || form.invalid"
+          >Registrar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-8">
+    <div class="card">
+      <div class="card-header">
+        Destinatarios Registrados
+      </div>
+      <div class="card-body">
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Nombre de Destinatario</th>
+              <th scope="col">Banco</th>
+              <th scope="col">Teléfono</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let receiver of receivers; let j = index">
+              <td>{{ receiver.name }}</td>
+              <td>{{ receiver.bank }}</td>
+              <td>{{ receiver.phone }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
