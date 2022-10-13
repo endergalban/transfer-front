@@ -3,7 +3,6 @@ import { CommonModule, } from '@angular/common';
 import { NgModule, } from '@angular/core';
 import { TransferRoutingModule } from './transfer-routing.module';
 import { TransferComponent, } from './transfer.component';
-import { RutPipe } from '../pipes/rut.pipe';
 
 @NgModule({
   imports: [
@@ -15,7 +14,6 @@ import { RutPipe } from '../pipes/rut.pipe';
   ],
   declarations: [
     TransferComponent,
-    RutPipe,
   ],
   providers: [
   ],
