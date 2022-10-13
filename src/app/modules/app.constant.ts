@@ -7,4 +7,10 @@ export const APPCONSTANT = {
     code: /^[a-zA-Z0-9_-]*$/,
     text: /^[0-9a-zA-Z\u00C0-\u017F,.\s-_]+$/,
   },
+  format: {
+    frontend: {
+      Date: 'DD-MM-YYYY HH:mm:ss',
+    },
+    timezone: 'UTC'
+  },
 };

@@ -48,7 +48,7 @@
         </div>
         <div class="card-body">
             <p><b>Nombre:</b> {{ receiver.name }}</p>
-            <p><b>RUT:</b> {{ receiver.identification }}</p>
+            <p><b>RUT:</b> {{ receiver.identification | rut }}</p>
             <p><b>Email:</b> {{ receiver.email }}</p>
             <p><b>Phone:</b> {{ receiver.phone }}</p>
             <p><b>Banco:</b> {{ receiver.bank }}</p>
