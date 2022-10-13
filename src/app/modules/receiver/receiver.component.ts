@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { RECEIVERCONSTANT } from './receiver.constant';
+import { APPCONSTANT } from '../app.constant';
 import { ReceiverService } from './services/receiver.service';
 
 @Component({
@@ -16,7 +16,6 @@ export class ReceiverComponent implements OnInit {
     private receiverService: ReceiverService,
     private fb: FormBuilder,
   ) {
-    this.createForm();
   }
 
   form: FormGroup = this.createForm();
@@ -40,29 +39,29 @@ export class ReceiverComponent implements OnInit {
         Validators.required,
         Validators.minLength(1),
         Validators.maxLength(50),
-        Validators.pattern(RECEIVERCONSTANT.regex.text),
+        Validators.pattern(APPCONSTANT.regex.text),
       ], ],
       identification: ['', [
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(11),
-        Validators.pattern(RECEIVERCONSTANT.regex.rut),
+        Validators.pattern(APPCONSTANT.regex.rut),
       ], ],
       email: ['', [
         Validators.required,
         Validators.minLength(1),
         Validators.maxLength(100),
-        Validators.pattern(RECEIVERCONSTANT.regex.email),
+        Validators.pattern(APPCONSTANT.regex.email),
       ], ],
       phone: ['', [
         Validators.required,
-        Validators.pattern(RECEIVERCONSTANT.regex.phone),
+        Validators.pattern(APPCONSTANT.regex.phone),
       ], ],
       accountNumber: [null, [
         Validators.required,
         Validators.minLength(5),
         Validators.maxLength(20),
-        Validators.pattern(RECEIVERCONSTANT.regex.number),
+        Validators.pattern(APPCONSTANT.regex.number),
       ], ],
       bank: [null, [ Validators.required ], ],
       accountType: [null, [ Validators.required ], ],
@@ -96,5 +95,5 @@ export class ReceiverComponent implements OnInit {
   errorSubmit() {
     this.form.enable();
     this.loading = false;
-  }     
+  }
 }

@@ -1,1 +1,61 @@
-<p>transfer works!</p>
+<div class="row">
+    <div class="col-4">
+      <div class="card">
+        <div class="card-header">
+          Transferencia
+        </div>
+        <div class="card-body">
+          <form [formGroup]="form">
+            <div class="form-row">
+              <div class="col-md-12 mb-3">
+                <label for="receiver">Destinatario</label>
+                <select
+                  formControlName="receiverId"
+                  class="form-control form-control-sm"
+                  id="receiver"
+                  (change)="loadReceiver($event)"
+                >
+                  <option *ngFor="let receiver of receivers; let j = index"  [value]="j">
+                    {{receiver.name}}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-12 mb-3">
+              <label for="amount">Monto</label>
+              <input formControlName="amount" type="text" class="form-control form-control-sm" id="amount" placeholder="99999999">
+            </div>
+            <button
+              class="btn btn-primary"
+              type="submit"
+              (click)="onSubmit()"
+              [disabled]="loading || form.invalid"
+            >Registrar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-8" >
+      <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+          Error al realizar la transferencia, por favor vuelva a intentarlo.
+      </div>
+      <div *ngIf="successMessage" class="alert alert-success" role="alert">
+          Transferencia realizada exitosamente
+      </div>
+      <div class="card" *ngIf="receiver">
+        <div class="card-header">
+          Datos del Destinatario
+        </div>
+        <div class="card-body">
+            <p><b>Nombre:</b> {{ receiver.name }}</p>
+            <p><b>RUT:</b> {{ receiver.identification }}</p>
+            <p><b>Email:</b> {{ receiver.email }}</p>
+            <p><b>Phone:</b> {{ receiver.phone }}</p>
+            <p><b>Banco:</b> {{ receiver.bank }}</p>
+            <p><b>Tipo de Cuenta:</b> {{ receiver.accountType }}</p>
+            <p><b>Número de cuenta:</b> {{ receiver.accountNumber }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  

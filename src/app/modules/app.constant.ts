@@ -1,4 +1,4 @@
-export const RECEIVERCONSTANT = {
+export const APPCONSTANT = {
   regex: {
     email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
     number: /^[0-9]+$/,
