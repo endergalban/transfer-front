@@ -1,0 +1,30 @@
+<div class="card">
+  <div class="card-header">
+    Historial de transferencias
+  </div>
+  <div class="card-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Nombre de Destinatario</th>
+          <th scope="col">RUT</th>
+          <th scope="col">Banco</th>
+          <th scope="col">Tipo de Cuenta</th>
+          <th scope="col">Fecha</th>
+          <th scope="col" class="text-end">Monto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transfer of transfers; let j = index">
+          <td>{{ transfer.receiver.name }}</td>
+          <td>{{ transfer.receiver.identification | rut }}</td>
+          <td>{{ transfer.receiver.bank }}</td>
+          <td>{{ transfer.receiver.accountType}}</td>
+          <td>{{ transfer.createdAt | dateMoment }}</td>
+          <td class="text-end">$ {{ transfer.amount | ngxNumberWithCommas }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+ 
